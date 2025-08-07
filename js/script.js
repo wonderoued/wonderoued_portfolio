@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // --- Fonctionnalité 1 : Mode sombre (déjà existant) ---
+  // --- Fonctionnalité 1 : Mode sombre ---
   const themeToggleBtn = document.getElementById('theme-toggle');
   const body = document.body;
 
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // --- Fonctionnalité 2 : Défilement fluide (ajouté) ---
+  // --- Fonctionnalité 2 : Défilement fluide ---
   const navLinks = document.querySelectorAll('.main-nav a');
 
   navLinks.forEach(link => {
@@ -32,30 +32,86 @@ document.addEventListener('DOMContentLoaded', () => {
       const targetSection = document.getElementById(targetId);
       if (targetSection) {
         window.scrollTo({
-          top: targetSection.offsetTop - 70, // -70 pour laisser de l'espace pour la barre de navigation
+          top: targetSection.offsetTop - 70, 
           behavior: 'smooth'
         });
       }
     });
   });
 
-  // --- Fonctionnalité 3 : Bouton "Retour en haut" (ajouté) ---
+  // --- Fonctionnalité 3 : Bouton "Retour en haut" ---
   const backToTopBtn = document.getElementById('back-to-top');
 
-  // Affiche ou cache le bouton en fonction du défilement
   window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) { // Apparaît après 300px de défilement
+    if (window.pageYOffset > 300) {
       backToTopBtn.style.display = 'block';
     } else {
       backToTopBtn.style.display = 'none';
     }
   });
 
-  // Gère le clic sur le bouton pour remonter en haut de la page
   backToTopBtn.addEventListener('click', () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
+  });
+  
+  // --- Fonctionnalité 4 : Logique de contact avec messages prédéfinis ---
+  const showWhatsappBtn = document.getElementById('show-whatsapp-options');
+  const showTelegramBtn = document.getElementById('show-telegram-options');
+  const whatsappOptions = document.getElementById('whatsapp-options');
+  const telegramOptions = document.getElementById('telegram-options');
+
+  const whatsappPhone = '22663631291';
+  const telegramUsername = 'wbczizou';
+
+  showWhatsappBtn.addEventListener('click', () => {
+    whatsappOptions.classList.toggle('hidden');
+    telegramOptions.classList.add('hidden');
+  });
+
+  showTelegramBtn.addEventListener('click', () => {
+    telegramOptions.classList.toggle('hidden');
+    whatsappOptions.classList.add('hidden');
+  });
+
+  document.querySelectorAll('.predefined').forEach(button => {
+    button.addEventListener('click', (e) => {
+      const message = e.target.dataset.message;
+      let url = '';
+      if (e.target.classList.contains('whatsapp')) {
+        url = `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(message)}`;
+      } else if (e.target.classList.contains('telegram')) {
+        url = `https://t.me/${telegramUsername}?text=${encodeURIComponent(message)}`;
+      }
+      if (url) {
+        window.open(url, '_blank');
+      }
+    });
+  });
+
+  const whatsappSendCustomBtn = document.getElementById('whatsapp-send-custom');
+  const whatsappCustomMessageInput = document.getElementById('whatsapp-custom-message');
+
+  whatsappSendCustomBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const customMessage = whatsappCustomMessageInput.value;
+    if (customMessage) {
+      const url = `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(customMessage)}`;
+      window.open(url, '_blank');
+    }
+  });
+
+  const telegramSendCustomBtn = document.getElementById('telegram-send-custom');
+  const telegramCustomMessageInput = document.getElementById('telegram-custom-message');
+
+  telegramSendCustomBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const customMessage = telegramCustomMessageInput.value;
+    if (customMessage) {
+      const url = `https://t.me/${telegramUsername}?text=${encodeURIComponent(customMessage)}`;
+      window.open(url, '_blank');
+    }
   });
 });

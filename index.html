@@ -22,6 +22,7 @@
         <li><a href="#projects">Projets</a></li>
         <li><a href="#skills">Compétences</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="#support">Soutien</a></li>
       </ul>
       <button id="theme-toggle" class="btn"><i class="fas fa-moon"></i> Mode Sombre</button>
     </nav>
@@ -97,6 +98,49 @@
       </div>
       <a href="assets/CV.pdf" download class="btn"><i class="fas fa-download"></i> Télécharger mon CV</a>
     </section>
+    
+    <section id="support">
+      <h2>Me soutenir</h2>
+      <p>Si mon travail et ma mission vous inspirent, vous pouvez me soutenir. Les fonds récoltés serviront à l'achat de matériel plus performant pour continuer à développer des solutions inclusives.</p>
+      
+      <h3>Faire un don via Orange Money</h3>
+      <p>Vous pouvez faire un don directement sur mon compte Orange Money au **+226 07 17 29 42**.</p>
+      
+      <h3>Contactez-moi directement</h3>
+      <div class="contact-options-wrapper">
+        <div class="contact-buttons-main">
+          <button id="show-whatsapp-options" class="btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+          <button id="show-telegram-options" class="btn telegram"><i class="fab fa-telegram-plane"></i> Telegram</button>
+        </div>
+
+        <div id="whatsapp-options" class="contact-menu hidden">
+          <h4>Choisissez un message ou écrivez le vôtre</h4>
+          <div class="predefined-buttons">
+            <button class="btn whatsapp predefined" data-message="Faire un don"><i class="fab fa-whatsapp"></i> Faire un don</button>
+            <button class="btn whatsapp predefined" data-message="Devenir un mentor ou coach"><i class="fab fa-whatsapp"></i> Devenir un mentor/coach</button>
+            <button class="btn whatsapp predefined" data-message="Collaboration"><i class="fab fa-whatsapp"></i> Collaboration</button>
+          </div>
+          <div class="custom-message-box">
+            <input type="text" id="whatsapp-custom-message" placeholder="Votre message personnalisé...">
+            <a href="#" id="whatsapp-send-custom" class="btn whatsapp"><i class="fas fa-paper-plane"></i> Envoyer</a>
+          </div>
+        </div>
+        
+        <div id="telegram-options" class="contact-menu hidden">
+          <h4>Choisissez un message ou écrivez le vôtre</h4>
+          <div class="predefined-buttons">
+            <button class="btn telegram predefined" data-message="Faire un don"><i class="fab fa-telegram-plane"></i> Faire un don</button>
+            <button class="btn telegram predefined" data-message="Devenir un mentor ou coach"><i class="fab fa-telegram-plane"></i> Devenir un mentor/coach</button>
+            <button class="btn telegram predefined" data-message="Collaboration"><i class="fab fa-telegram-plane"></i> Collaboration</button>
+          </div>
+          <div class="custom-message-box">
+            <input type="text" id="telegram-custom-message" placeholder="Votre message personnalisé...">
+            <a href="#" id="telegram-send-custom" class="btn telegram"><i class="fas fa-paper-plane"></i> Envoyer</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer>
